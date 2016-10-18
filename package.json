@@ -1,0 +1,32 @@
+{
+  "name": "angular-gulp-seed",
+  "version": "1.0.0",
+  "description": "angular+gulp+es5种子项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silence717/angular-gulp-seed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silence717/angular-gulp-seed/issues"
+  },
+  "homepage": "https://github.com/silence717/angular-gulp-seed#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "normalize.css": "^5.0.0"
+  },
+  "devDependencies": {
+    "angular-resource": "^1.5.8",
+    "browser-sync": "^2.17.3",
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-order": "^1.1.1",
+    "gulp-watch": "^4.3.10"
+  }
+}
