@@ -1,0 +1,28 @@
+.amount {
+    width: 120px;
+    height: 24px;
+    line-height: 24px;
+    color: #3d3d3d;
+    font-size: 0;
+}
+.amount .operate {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #3d3d3d;
+    text-decoration: none;
+    border: 1px solid #e3e3e3;
+}
+.amount .number {
+    display: inline-block;
+    width: 50px;
+    height: 23px;
+    padding: 1px 5px 0 5px;
+    font-size: 12px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px #e3e3e3 solid;
+    border-bottom: 1px #e3e3e3 solid;
+}

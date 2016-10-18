@@ -5,6 +5,8 @@
 (function(angular) {
 	angular
 		.module('app.components', [
-			'app.components.layout'
+			'app.components.layout',
+			'app.components.amount',
+			'app.components.pullDown'
 		]);
 })(window.angular);

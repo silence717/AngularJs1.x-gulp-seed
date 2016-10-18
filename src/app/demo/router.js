@@ -11,7 +11,7 @@
 	config.$inject = ['$stateProvider'];
 	function config($stateProvider) {
 		var demo = {
-			url: '/wechat',
+			url: '/demo',
 			templateUrl: '../src/app/demo/index.html'
 		};
 		$stateProvider.state('demo', demo);

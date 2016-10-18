@@ -1,0 +1,19 @@
+main {
+    flex: 1;
+    color:#444;
+    background: #eee;
+}
+nav, aside {
+    flex: 0 0 20%;
+    background: #60AAEF;
+}
+nav li a {
+    display: block;
+    color: #fff;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+nav li a.selected{
+    background-color: #eee;
+    color:#444;
+}

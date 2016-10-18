@@ -16,6 +16,6 @@
 			controller: 'PullDownController',
 			controllerAs: 'vm'
 		};
-		$stateProvider.state('pulldown', pulldown);
+		$stateProvider.state('demo.pulldown', pulldown);
 	}
 })(window.angular);

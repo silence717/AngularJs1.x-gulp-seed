@@ -16,6 +16,6 @@
 			controller: 'MenuController',
 			controllerAs: 'vm'
 		};
-		$stateProvider.state('menu', menu);
+		$stateProvider.state('demo.menu', menu);
 	}
 })(window.angular);

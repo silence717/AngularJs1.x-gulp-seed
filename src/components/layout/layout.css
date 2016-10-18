@@ -1,7 +1,6 @@
 .wrapper {
     display: flex;
     flex-flow: row wrap;
-    font-weight: bold;
     text-align: center;
 }
 .wrapper > * {
@@ -29,8 +28,9 @@
     background: lightgreen;
 }
 .main {
-    text-align: left;
-    background: deepskyblue;
+    display: flex;
+    padding: 0;
+    flex: 1;
 }
 .aside {
     background: gold;

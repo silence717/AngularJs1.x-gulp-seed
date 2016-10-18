@@ -1,0 +1,10 @@
+<div class="pull-down">
+    <div class="current" ng-click="vm.toggle($event);" ng-cloak>
+        {{vm.selectData.title}}{{vm.selectData.value}}<i class="iconfont icon-sort icon-{{vm.selectData.sort}}"></i>
+    </div>
+    <div class="list" ng-show="vm.isOpened">
+        <ul>
+            <li ng-repeat="item in vm.data" ng-click="vm.itemClick(item);" ng-bind="item.title + item.value"></li>
+        </ul>
+    </div>
+</div>

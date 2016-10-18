@@ -12,10 +12,14 @@
 	function config($stateProvider) {
 		var amount = {
 			url: '/amount',
-			templateUrl: '../src/app/demo/amount/index.html',
-			controller: 'AmountController',
-			controllerAs: 'vm'
+			views: {
+				'' : {
+					templateUrl: '../src/app/demo/amount/index.html',
+					controller: 'AmountController',
+					controllerAs: 'vm'
+				}
+			}
 		};
-		$stateProvider.state('amount', amount);
+		$stateProvider.state('demo.amount', amount);
 	}
 })(window.angular);
