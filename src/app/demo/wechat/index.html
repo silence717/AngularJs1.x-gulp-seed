@@ -1,1 +1,12 @@
-<h2>模拟微信语音</h2>
+<h4>模拟微信语音播放</h4>
+<voice  position="left"
+        voice-play-callback="vm.audioPlayClick(vm.url1);"
+        voice-stop-callback="vm.audioStopClick();"
+        hasend="vm.hasend">
+</voice>
+<voice  position="right"
+        voice-play-callback="vm.audioPlayClick(vm.url2);"
+        voice-stop-callback="vm.audioStopClick();"
+        hasend="vm.hasend">
+</voice>
+<audio  ng-src="{{vm.sce(vm.currentAudio)}}"></audio>

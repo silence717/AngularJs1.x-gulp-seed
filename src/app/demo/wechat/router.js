@@ -16,6 +16,6 @@
 			controller: 'WechatController',
 			controllerAs: 'vm'
 		};
-		$stateProvider.state('wechat', wechat);
+		$stateProvider.state('demo.wechat', wechat);
 	}
 })(window.angular);

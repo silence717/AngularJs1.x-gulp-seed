@@ -17,3 +17,10 @@ nav li a.selected{
     background-color: #eee;
     color:#444;
 }
+voice {
+    margin-bottom: 20px;
+    display: block;
+}
+.right-part {
+    padding: 20px;
+}

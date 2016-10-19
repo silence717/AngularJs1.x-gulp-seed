@@ -1,0 +1,59 @@
+.menu {
+    width: 180px;
+    background-color: #f4f4f4;
+    height: 100%;
+}
+.menu-link {
+    display: block;
+}
+.menu .iconfont {
+    float: right;
+    font-size: 12px;
+    position: relative;
+    top: 1px;
+}
+.menu .menu-item .menu-link {
+    border-bottom: 1px solid #e6e6e6;
+    line-height: 39px;
+    padding: 0 15px 0 20px;
+    color: #3a3a3a;
+}
+.menu > .menu-item > .menu-link .iconfont {
+    color: #cbcbcb;
+    transform:rotate(90deg) scale(0.6) ;
+    -ms-transform:rotate(90deg) scale(0.6); 	/* IE 9 */
+    -moz-transform:rotate(90deg) scale(0.6); 	/* Firefox */
+    -webkit-transform:rotate(90deg) scale(0.6); /* Safari 和 Chrome */
+    -o-transform:rotate(90deg) scale(0.6);
+}
+.menu > .menu-item > .menu-link.active {
+    background: #fdfdfd;
+    border-bottom: 0;
+    color: #262626;
+}
+.menu > .menu-item > .menu-link.opened .iconfont {
+    color: #cbcbcb;
+    transform:rotate(270deg) scale(0.6);
+    -ms-transform:rotate(270deg) scale(0.6); 	/* IE 9 */
+    -moz-transform:rotate(270deg) scale(0.6); 	/* Firefox */
+    -webkit-transform:rotate(270deg) scale(0.6); /* Safari 和 Chrome */
+    -o-transform:rotate(270deg) scale(0.6);
+}
+.menu > .menu-item > .menu > .menu-item > .menu-link {
+    border-bottom: 0;
+    padding-left: 32px;
+    line-height: 35px;
+    color: #666;
+}
+.menu > .menu-item > .menu > .menu-item > .menu-link.active {
+    background: #fdfdfd;
+    color: #262626;
+}
+.menu .menu {
+    border-top: 0;
+    display: none;
+}
+.menu .opened + .menu {
+    display: block;
+}
+

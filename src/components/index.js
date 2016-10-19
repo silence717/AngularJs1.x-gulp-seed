@@ -7,6 +7,8 @@
 		.module('app.components', [
 			'app.components.layout',
 			'app.components.amount',
-			'app.components.pullDown'
+			'app.components.pullDown',
+			'app.components.voice',
+			'app.components.menu'
 		]);
 })(window.angular);
