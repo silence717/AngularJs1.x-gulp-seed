@@ -7,7 +7,7 @@
     "start": "gulp"
   },
   "repository": {
-    "type": "git",
+    "type": "git && node server.js",
     "url": "git+https://github.com/silence717/angular-gulp-seed.git"
   },
   "author": "",
@@ -18,15 +18,20 @@
   "homepage": "https://github.com/silence717/angular-gulp-seed#readme",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-resource": "^1.5.8",
     "angular-ui-router": "^0.3.1",
     "normalize.css": "^5.0.0"
   },
   "devDependencies": {
     "angular-resource": "^1.5.8",
+    "body-parser": "^1.15.2",
     "browser-sync": "^2.17.3",
+    "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-inject": "^4.1.0",
     "gulp-order": "^1.1.1",
-    "gulp-watch": "^4.3.10"
+    "gulp-watch": "^4.3.10",
+    "http-proxy-middleware": "^0.17.2",
+    "json-server": "^0.8.22"
   }
 }

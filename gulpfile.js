@@ -33,10 +33,13 @@ gulp.task('watch', function() {
 });
 
 // 使用browerSync启动浏览器
-gulp.task('browserSync', function () {
+gulp.task('browserSync', function() {
+	// add proxy for gui
+	var middleware = proxyMiddleware(['/web/', '/guide-manger-api/1.0/'], {target: target, changeOrigin: true});
 	browserSync({
 		server: {
 			baseDir: './',
+			middleware: middleware,
 			index: 'src/index.html'
 		}
 	});

@@ -101,5 +101,81 @@ gulp.task('watch', function() {
 gulp.task('default', ['inject', 'browserSync', 'watch']);
 ```
 
-6. 为了前端保持独立，使用express搭建一个mock服务
-到这里的时候，我们就能愉快的开始开发了。
+6. 为了前端保持独立，使用express搭建一个mock服务,到这里的时候，我们就能愉快的开始开发了。
+
+首先安装依赖包：
+```bash
+npm install express body-parser json-server http-proxy-middleware -D
+```
+创建server.js，内容如下：
+```js
+var jsonServer = require('json-server');
+var server = jsonServer.create();
+var middlewares = jsonServer.defaults();
+var bodyParser = require('body-parser');
+var mockRouter = require('./mock/index');
+
+// 添加默认的中间件 logger, static, cors and no-cache
+server.use(middlewares);
+
+// 解析 body
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({
+	extended: false
+}));
+
+server.use(mockRouter);
+
+server.listen(400, function() {
+	console.log('server is running, please visit http://localhost:9000');
+});
+```
+mock文件夹下创建index.js,内容如下：
+```js
+var fs = require('fs');
+var express = require ('express');
+var router = express.Router();
+
+fs.readdirSync('mock').forEach(function(route) {
+    if (route.indexOf('index') === -1) {
+        require('./' + route)(router);
+    }
+});
+
+module.exports = router;
+```
+在gulpfile.js中统一配置拦截请求：
+```js
+var proxyMiddleware = require('http-proxy-middleware');
+
+```
+7. 引入angular-resource.js，使用$resource服务
+```bash
+npm install angular-resource --save
+```
+在common/resource/创建一个resourceUtils.js文件，为所有请求添加统一前缀
+```js
+(function(angular) {
+	angular
+		.module('app.resource')
+		.factory('resourceUtils', resourceUtils)
+		.factory('webResource', webResource);
+
+	resourceUtils.$inject = ['$resource'];
+
+	function resourceUtils($resource) {
+		return function(apiPrefix) {
+			return function(url, params, actions) {
+				return $resource(apiPrefix + url, params, actions);
+			};
+		};
+	}
+
+	webResource.$inject = ['resourceUtils'];
+	function webResource(resourceUtils) {
+		return resourceUtils('/web/');
+	}
+
+})(window.angular);
+```
+关于$resource服务的使用，请参考这篇文章。[https://silence717.github.io/2016/09/28/creating-crud-app-minutes-angulars-resource/](https://silence717.github.io/2016/09/28/creating-crud-app-minutes-angulars-resource/)

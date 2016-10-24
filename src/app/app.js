@@ -7,6 +7,7 @@
 		.module('app', [
 			'ui.router',
 			'ngResource',
+			'app.resource',
 			'app.components',
 			'app.demoModule',
 			'app.homeModule'

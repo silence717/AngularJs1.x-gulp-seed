@@ -25,12 +25,19 @@
     color: white;
 }
 .footer {
-    background: lightgreen;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #e3e3e3;
 }
 .main {
     display: flex;
     padding: 0;
     flex: 1;
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    bottom: 38px;
 }
 .aside {
     background: gold;
