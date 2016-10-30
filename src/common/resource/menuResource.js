@@ -14,7 +14,7 @@
 		return resource;
 		
 		function queryMenu() {
-			return webResource('/queryMenus');
+			return webResource('queryMenus');
 		}
 	}
 })(window.angular);

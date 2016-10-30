@@ -7,7 +7,18 @@ var browserSync = require('browser-sync');
 var order = require('gulp-order');
 var inject = require('gulp-inject');
 var watch = require('gulp-watch');
+var proxyMiddleware = require('http-proxy-middleware');
 var config = require('./gulp.conf');
+
+// 配置代理路径，是否为本地mock
+var target = '';
+var isLocal = true;
+
+if (isLocal) {
+	target = 'http://localhost:4000';
+} else {
+	// todo 这里可以配置成你需要连接的API服务地址
+}
 
 // 动态添加css和js到index.html
 gulp.task('inject', function() {
@@ -34,8 +45,7 @@ gulp.task('watch', function() {
 
 // 使用browerSync启动浏览器
 gulp.task('browserSync', function() {
-	// add proxy for gui
-	var middleware = proxyMiddleware(['/web/', '/guide-manger-api/1.0/'], {target: target, changeOrigin: true});
+	var middleware = proxyMiddleware(['/web/'], {target: target, changeOrigin: true});
 	browserSync({
 		server: {
 			baseDir: './',

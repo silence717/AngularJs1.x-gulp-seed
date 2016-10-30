@@ -19,6 +19,6 @@ server.use(bodyParser.urlencoded({
 
 server.use(mockRouter);
 
-server.listen(400, function() {
-	console.log('server is running, please visit http://localhost:9000');
+server.listen(4000, function() {
+	console.log('server is running, please visit http://localhost:4000');
 });
