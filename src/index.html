@@ -18,9 +18,36 @@
 <body>
     <layout></layout>
 </body>
+<!-- build:js js/lib.js -->
 <script src="../node_modules/angular/angular.js"></script>
 <script src="../node_modules/angular-resource/angular-resource.min.js"></script>
 <script src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/common.js -->
+<!-- common:js -->
+<script src="../src/common/resource/index.js"></script>
+<script src="../src/common/resource/menuResource.js"></script>
+<script src="../src/common/resource/resourceUtils.js"></script>
+<!-- endinject-->
+<!-- endbuild -->
+
+<!-- build:js js/components.js -->
+<!-- components:js -->
+<script src="../src/components/amount/index.js"></script>
+<script src="../src/components/index.js"></script>
+<script src="../src/components/layout/index.js"></script>
+<script src="../src/components/menu/index.js"></script>
+<script src="../src/components/pulldown/index.js"></script>
+<script src="../src/components/amount/amount.component.js"></script>
+<script src="../src/components/layout/layout.component.js"></script>
+<script src="../src/components/menu/menu.component.js"></script>
+<script src="../src/components/pulldown/pulldown.component.js"></script>
+<script src="../src/components/wechat/wechat.component.js"></script>
+<!-- endinject-->
+<!-- endbuild -->
+
+<!-- build:js js/app.js -->
 <!-- inject:js -->
 <script src="../src/app/app.js"></script>
 <script src="../src/app/app.router.js"></script>
@@ -36,23 +63,14 @@
 <script src="../src/app/demo/router.js"></script>
 <script src="../src/app/demo/wechat/router.js"></script>
 <script src="../src/app/home/router.js"></script>
-<script src="../src/common/resource/index.js"></script>
-<script src="../src/components/amount/index.js"></script>
-<script src="../src/components/index.js"></script>
-<script src="../src/components/layout/index.js"></script>
-<script src="../src/components/menu/index.js"></script>
-<script src="../src/components/pulldown/index.js"></script>
 <script src="../src/app/demo/amount/controller.js"></script>
 <script src="../src/app/demo/controller.js"></script>
 <script src="../src/app/demo/menu/controller.js"></script>
 <script src="../src/app/demo/pulldown/controller.js"></script>
 <script src="../src/app/demo/wechat/controller.js"></script>
-<script src="../src/common/resource/menuResource.js"></script>
-<script src="../src/common/resource/resourceUtils.js"></script>
-<script src="../src/components/amount/amount.component.js"></script>
-<script src="../src/components/layout/layout.component.js"></script>
-<script src="../src/components/menu/menu.component.js"></script>
-<script src="../src/components/pulldown/pulldown.component.js"></script>
-<script src="../src/components/wechat/wechat.component.js"></script>
-<!-- endinject -->
+<!-- endinject-->
+<!-- endbuild -->
+
+<!-- app.templates.js -->
+<!-- components.templates.js -->
 </html>

@@ -5,14 +5,16 @@
 module.exports = function () {
 
 	var src = './src/';
-	var build = './build/';
+	var build = './dist/';
 
 	var config = {
 		src: src,
 		build: build,
 		index: src + 'index.html',
-		js: src + '**/*.js',
 		css: [src + '**/*.css'],
+		appJs: [src + 'app/**/*.js'],
+		commonJs: [src + 'common/**/*.js'],
+		componentJs: [src + 'components/**/*.js'],
 		jsOrder: [
 			'**/app.js',    // 项目主入口
 			'**/app.*.js',  // 主入口相应配置

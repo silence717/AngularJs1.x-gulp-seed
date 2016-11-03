@@ -26,13 +26,22 @@
     "body-parser": "^1.15.2",
     "browser-sync": "^2.17.5",
     "concurrently": "^3.1.0",
+    "del": "^2.2.2",
     "express": "^4.14.0",
     "express-http-proxy": "^0.10.1",
     "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.0.0",
     "gulp-inject": "^4.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-minify-html": "^1.0.6",
     "gulp-order": "^1.1.1",
+    "gulp-replace": "^0.5.4",
+    "gulp-rev": "^7.1.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-usemin": "^0.3.25",
     "gulp-watch": "^4.3.10",
     "http-proxy-middleware": "^0.17.2",
-    "json-server": "^0.8.22"
+    "json-server": "^0.8.22",
+    "run-sequence": "^1.2.2"
   }
 }
