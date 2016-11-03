@@ -9,11 +9,11 @@
 	menuResource.$inject = ['webResource'];
 	function menuResource(webResource) {
 		var resource = {
-			queryMenu: queryMenu
+			queryMenu: queryMenuResource
 		};
 		return resource;
 		
-		function queryMenu() {
+		function queryMenuResource() {
 			return webResource('queryMenus');
 		}
 	}

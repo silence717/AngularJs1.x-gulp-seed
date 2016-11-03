@@ -14,15 +14,11 @@
         <a ng-if="item.isLeaf==='0'"
            class="menu-link"
            ng-class="{active: $state.includes(item.url)}"
-           href=""
-           ui-sref-active="active"
-           ui-sref="{{item.url}}({brand:'{{item.brand}}'})"
-           ui-sref-opts="{reload:true}"
         >{{item.name}}</a>
 
         <!-- 子目录 -->
-        <side-nav ng-if="item.childMenus.length > 0"
+        <menu ng-if="item.childMenus.length > 0"
                   data="item.childMenus">
-        </side-nav>
+        </menu>
     </li>
 </ul>

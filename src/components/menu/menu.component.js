@@ -4,8 +4,8 @@
  */
 (function() {
     angular
-    .module('app.components.menu', ['ui.router'])
-    .directive('menu', menu);
+        .module('app.components.menu')
+        .directive('menu', menu);
 
     function menu() {
         var directive = {
@@ -15,7 +15,7 @@
                 pid: '='
             },
             templateUrl: '../src/components/menu/menu.tpl.html',
-            controller: MenuController,
+            controller: Controller,
             controllerAs: 'vm',
             bindToController: true,
             replace: true
@@ -23,9 +23,11 @@
         return directive;
     }
 
-    function MenuController() {
+
+    function Controller($scope) {
         var vm = this;
         initData();
+
         function initData() {
             angular.forEach(vm.data, function(item) {
                 if (item.isLeaf === '1') {

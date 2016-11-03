@@ -44,6 +44,7 @@
     padding-left: 32px;
     line-height: 35px;
     color: #666;
+    background: #e8e8e8;
 }
 .menu > .menu-item > .menu > .menu-item > .menu-link.active {
     background: #fdfdfd;

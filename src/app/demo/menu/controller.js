@@ -10,9 +10,9 @@
 
 	MenuController.$inject = ['menuResource'];
 	function MenuController(menuResource) {
-		var vm = this;
+		var vm = this;		
 		menuResource.queryMenu().get().$promise.then(function (res) {
-			vm.menus = res.data;
+			vm.menus = res.data.menus;
 		});
 	}
 })();
