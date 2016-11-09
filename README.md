@@ -18,6 +18,8 @@ src
 
 	components	// 组件
 
+	scripts // gulp任务脚本
+
 package.json
 ```
 

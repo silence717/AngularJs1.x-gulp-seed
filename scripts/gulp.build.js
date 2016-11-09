@@ -1,15 +1,15 @@
 /**
  * @author  https://github.com/silence717
  * @date on 2016/11/3
+ * @desc [gulp dist 任务集合]
  */
 var gulp = require('gulp');
 var templateCache = require('gulp-angular-templatecache');
-var usemin = require('gulp-usemin');
-var minifyHtml = require('gulp-minify-html');
 var minifyCss = require('gulp-minify-css');
+var gulpIf = require('gulp-if');
+var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var replace = require('gulp-replace');
-var rev = require('gulp-rev');
 var config = require('./gulp.conf');
 
 module.exports = function () {
@@ -21,7 +21,7 @@ module.exports = function () {
 				.src(templatesPaths)
 				.pipe(templateCache({
 					module: 'components',
-					root: 'components',
+					root: '../src/components',
 					filename: 'components.templates.js'
 				}))
 				.pipe(gulp.dest(config.build + '/js'));
@@ -33,7 +33,7 @@ module.exports = function () {
 				.src(templatesPaths)
 				.pipe(templateCache({
 					module: 'app',
-					root: '/src/app',
+					root: '../src/app',
 					filename: 'app.templates.js'
 				}))
 				.pipe(gulp.dest(config.build + '/js'));
@@ -49,24 +49,14 @@ module.exports = function () {
 				'<!-- app.templates.js -->',
 				'<script src="../dist/js/app.templates.js"></script>'
 			];
-			return gulp
-				.src(config.src + '/index.html')
+
+			return gulp.src(config.index)
+				.pipe(useref())
 				.pipe(replace(replacements))
 				.pipe(replace(replaceApp))
-				.pipe(usemin({
-					html: [minifyHtml({empty: true, quotes: true})],
-					css: [minifyCss(), rev()],
-					js: [uglify({
-						mangle: false,
-						compress: false,
-						output: {
-							bracketize: true
-						}
-					}).on('error', function(e) {
-						console.log(e);
-					}), rev()]
-				}))
-				.pipe(gulp.dest(config.build));
+				.pipe(gulpIf('*.js', uglify()))
+				.pipe(gulpIf('*.css', minifyCss()))
+				.pipe(gulp.dest(config.build));	
 		}
 	};
 	return buildTask;

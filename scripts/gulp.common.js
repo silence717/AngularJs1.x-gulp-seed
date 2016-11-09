@@ -1,6 +1,7 @@
 /**
  * @author  https://github.com/silence717
  * @date on 2016/11/09
+ * @desc [公共gulp任务]
  */
 var gulp = require('gulp');
 var inject = require('gulp-inject');

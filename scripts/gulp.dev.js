@@ -1,6 +1,7 @@
 /**
  * @author  https://github.com/silence717
  * @date on 2016/11/09
+ * @desc [开发环境gulp任务]
  */
 var gulp = require('gulp');
 var watch = require('gulp-watch');
@@ -26,7 +27,6 @@ module.exports = function () {
 			browserSync({
 				server: {
 					baseDir: './',
-					index: 'src/index.html',
 					middleware: middleware
 				}
 			});
