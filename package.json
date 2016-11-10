@@ -1,8 +1,8 @@
 {
   "name": "angular-gulp-seed",
   "version": "1.0.0",
-  "description": "angular+gulp+es5种子项目",
-  "main": "index.js",
+  "description": "angular + gulp + es5种子项目",
+  "main": "app.js",
   "scripts": {
     "start": "concurrently \"gulp\" \"node server.js\""
   },
