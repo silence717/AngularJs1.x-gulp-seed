@@ -1,5 +1,4 @@
-# step by step 生成一个 angular + gulp + es5的项目
-
+#### 源码地址：[https://github.com/silence717/angular-gulp-seed](https://github.com/silence717/angular-gulp-seed)
 ## 创建一个空文件夹名字任意，此项目为angular-gulp-seed
 ```bash
 mkdir angular-gulp-seed
@@ -37,11 +36,11 @@ package.json
 ##  正式开始coding
 
 ### gulp配置部分
-1. 安装gulp
+    1. 安装gulp
 ```bash
 npm install  gulp -D
 ```
-2. 新建gulpfile文件，安装browser-sync包，配置第一个任务
+    2. 新建gulpfile文件，安装browser-sync包，配置第一个任务
 ```js
 var browserSync = require('browser-sync');
 gulp.task('browserSync', function () {
@@ -55,12 +54,13 @@ gulp.task('browserSync', function () {
 gulp.task('default', ['browserSync']);
 // 执行gulp命令，浏览器启动，可以看到大致页面结构
 ```
-更多browser-sync的信息：[http://www.browsersync.cn/](http://www.browsersync.cn/)。  
-3. 为了动态插入新加的js和css文件,且添加的文件有一定顺序，安装gulp系列包。  
+更多browser-sync的信息：[http://www.browsersync.cn/](http://www.browsersync.cn/)。 
+
+    3. 为了动态插入新加的js和css文件,且添加的文件有一定顺序，安装gulp系列包。  
 ```bash
 npm install gulp-watch gulp-inject gulp-order -D
 ```
-4. 新建一个gulp.config.js文件,配置一些基本文件路径和顺序
+    4. 新建一个gulp.config.js文件,配置一些基本文件路径和顺序
 ```js
 module.exports = function () {
 
@@ -92,7 +92,7 @@ module.exports = function () {
 	return config;
 }();
 ```
-5. 使用gulp-inject动态插入css和js  
+    5. 使用gulp-inject动态插入css和js  
 * js任务编写
 ```js
 var config = require('./gulp.conf.js');
@@ -133,7 +133,7 @@ gulp.task('default', ['inject', 'browserSync']);
 <script src="../src/app/app.js"></script>
 <!-- endinject -->
 ```
-6. 开发过程中会不断添加新的css和js文件，为了优化开发体验，引入gulp-watch包添加watch任务，当js和css文件发生变化的时候，去执行inject任务
+    6. 开发过程中会不断添加新的css和js文件，为了优化开发体验，引入gulp-watch包添加watch任务，当js和css文件发生变化的时候，去执行inject任务
 ```js
 var watch = require('gulp-watch');
 gulp.task('watch', function() {
@@ -147,13 +147,12 @@ gulp.task('watch', function() {
 gulp.task('default', ['inject', 'browserSync', 'watch']);
 ```
 ### 编写业务代码 
-1. 安装angular相关包
+    1. 安装angular相关包
 ```bash
 npm install  angular angular-ui-router --save
 ```
-鉴于大天朝网络环境，建议使用cnpm来安装。。。
 
-由于代码量过大，不贴出具体参见src/spp下面代码实现
+    2. 由于代码量过大，不贴出具体参见src/spp下面代码实现
 * src/index.html
 * src/app.js 项目主入口
 * src/app.router.js 项目路由配置
@@ -161,11 +160,11 @@ npm install  angular angular-ui-router --save
 ### mock数据服务  
 为了前端保持独立，使用express搭建一个mock服务，然后我们就能愉快的开始开发了。
 
-1. 首先安装依赖包：
+    1. 首先安装依赖包：
 ```bash
 npm install express body-parser json-server http-proxy-middleware -D
 ```
-2. 创建server.js，内容如下：
+    2. 创建server.js，内容如下：
 ```js
 var jsonServer = require('json-server');
 var server = jsonServer.create();
@@ -188,7 +187,7 @@ server.listen(4000, function() {
 	console.log('God bless me no bug, http://localhost:4000');
 });
 ```
-3. mock文件夹下创建index.js,内容如下：
+    3. mock文件夹下创建index.js,内容如下：
 ```js
 var fs = require('fs');
 var express = require ('express');
@@ -202,7 +201,7 @@ fs.readdirSync('mock').forEach(function(route) {
 
 module.exports = router;
 ```
-4. 引入angular-resource.js，使用$resource服务
+    4. 引入angular-resource.js，使用$resource服务
 ```bash
 npm install angular-resource --save
 ```
@@ -234,7 +233,7 @@ npm install angular-resource --save
 ```
 关于$resource服务的使用，请参考这篇文章。[https://silence717.github.io/2016/09/28/creating-crud-app-minutes-angulars-resource/](https://silence717.github.io/2016/09/28/creating-crud-app-minutes-angulars-resource/)
 
-5. 在gulpfile.js中统一配置代理，并且修改browserSync任务：
+    5. 在gulpfile.js中统一配置代理，并且修改browserSync任务：
 ```js
 // 引入http-proxy-middleware
 var proxyMiddleware = require('http-proxy-middleware');
@@ -260,18 +259,19 @@ gulp.task('browserSync', function() {
 	});
 });
 ```
-6. 你可能需要添加一些公共的interceptor去处理后端返回的数据或者请求出错的统一处理。具体参见[https://docs.angularjs.org/api/ng/service/$http](https://docs.angularjs.org/api/ng/service/$http).  
+    6. 你可能需要添加一些公共的interceptor去处理后端返回的数据或者请求出错的统一处理。具体参见[https://docs.angularjs.org/api/ng/service/$http](https://docs.angularjs.org/api/ng/service/$http).  
 
 **至此已经可以在本地愉快的开发了。**
 
 ### 配置gulp编译任务
 开发完成以后代码需要build上线，继续创建一些task。
-1. 安装相关依赖包
+    1. 安装相关依赖包
 ```bash
 npm install gulp-angular-templatecache gulp-minify-css gulp-if gulp-useref gulp-uglify gulp-replace -D
 ```
-2. 配置build任务，具体在scripts/gulp.build.js文件中
-3. 页面html遇到build的地方配置
+    2. 配置build任务，具体在scripts/gulp.build.js文件中.
+    
+    3. 页面html遇到build的地方配置
 ```html
  ...
  <!-- build:css css/app.css -->
@@ -330,9 +330,9 @@ gulp.task('dist', ['clean'], function() {
 ```
 "scripts": {
     "start": "concurrently \"gulp\" \"node server.js\""
-  },
+  }
 ```
 * 执行npm start即可本地启动项目
 * 上线合并代码的时候执行`gulp dist`命令即可
 
-拖延症晚期，终于写完了。有时间会加入eslint校验等等。。。
+拖延症晚期，终于写完了。有时间会加入eslint校验,添加md5，添加sass等等。。。需要做的还有很多，看心情吧！
