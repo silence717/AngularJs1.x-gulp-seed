@@ -10,19 +10,18 @@ var browserSync = require('browser-sync');
 var config = require('./gulp.conf.js');
 
 module.exports = function () {
+	// 业务js
+	var appJs = gulp.src(config.appJs, {read: false}).pipe(order(config.jsOrder));
+	// resource js
+	var commonJs = gulp.src(config.commonJs, {read: false}).pipe(order(config.jsOrder));
+	// 组件js
+	var componentJs = gulp.src(config.componentJs, {read: false}).pipe(order(config.jsOrder));
+	// css
+	var css = gulp.src(config.css, {read: false}).pipe(order(config.cssOrder));
 	
 	var commonTask = {
 		// 动态插入js和css文件
 		inject: function() {
-			// 业务js
-			var appJs = gulp.src(config.appJs, {read: false}).pipe(order(config.jsOrder));
-			// resource js
-			var commonJs = gulp.src(config.commonJs, {read: false}).pipe(order(config.jsOrder));
-			// 组件js
-			var componentJs = gulp.src(config.componentJs, {read: false}).pipe(order(config.jsOrder));
-			// css
-			var css = gulp.src(config.css, {read: false}).pipe(order(config.cssOrder));
-
 			return gulp
 				.src(config.index)
 				.pipe(inject(commonJs, {addPrefix: '../src', relative: true, name: 'common'}))

@@ -27,6 +27,7 @@ module.exports = function () {
 			browserSync({
 				server: {
 					baseDir: './',
+					index: 'src/index.html',
 					middleware: middleware
 				}
 			});

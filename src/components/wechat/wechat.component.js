@@ -18,7 +18,7 @@
             },
             controller: VoiceController,
             controllerAs: 'vm',
-            templateUrl: '../../src/components/wechat/wechat.tpl.html',
+            templateUrl: '../src/components/wechat/wechat.tpl.html',
             bindToController: true
         };
         return directive;

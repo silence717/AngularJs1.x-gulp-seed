@@ -9,7 +9,7 @@
 			max: '=',
 			model: '='
 		},
-		templateUrl: '../../src/components/amount/amount.tpl.html',
+		templateUrl: '../src/components/amount/amount.tpl.html',
 		controller: AmountController,
 		controllerAs: 'vm'
 	};

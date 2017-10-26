@@ -34,8 +34,13 @@ gulp.task('build:components-templates', function() {
 gulp.task('build:app-templates', function () {
 	buildTask.appTemplate();
 });
+// copy html files
+gulp.task('copyHtml', function () {
+	buildTask.copyCompoentsHtml();
+	buildTask.copyAppHtml();
+});
 // build index文件
-gulp.task('build', ['build:components-templates', 'build:app-templates'], function() {
+gulp.task('build', ['copyHtml', 'build:components-templates', 'build:app-templates'], function() {
 	buildTask.buildIndex();
 });
 // 本地开发

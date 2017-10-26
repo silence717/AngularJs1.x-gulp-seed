@@ -4,7 +4,8 @@
   "description": "angular + gulp + es5种子项目",
   "main": "app.js",
   "scripts": {
-    "start": "concurrently \"gulp\" \"node server.js\""
+    "start": "concurrently \"gulp\" \"node server.js\"",
+    "build": "gulp dist"
   },
   "repository": {
     "type": "git && node server.js",

@@ -13,27 +13,39 @@ var replace = require('gulp-replace');
 var config = require('./gulp.conf');
 
 module.exports = function () {
+	var componentsTemplatesPaths = [config.src + '/components/**/*.html'];
+	var appTemplatesPaths = [config.src + '/app/**/*.html'];
 	var buildTask = {
+		// copy components html
+		copyCompoentsHtml: function () {
+			return gulp
+				.src(componentsTemplatesPaths)
+				.pipe(gulp.dest(config.build + '/components/'));
+		},
+		// copy app html
+		copyAppHtml: function () {
+			return gulp
+				.src(appTemplatesPaths)
+				.pipe(gulp.dest(config.build + '/app/'));
+		},
 		// 打包公共模板
 		componentsTemplate: function() {
-			var templatesPaths = [config.src + '/components/**/*.html'];
 			return gulp
-				.src(templatesPaths)
+				.src(componentsTemplatesPaths)
 				.pipe(templateCache({
 					module: 'components',
-					root: '../src/components',
+					root: '../dist/components',
 					filename: 'components.templates.js'
 				}))
 				.pipe(gulp.dest(config.build + '/js'));
 		},
 		// 打包业务组件模板
 		appTemplate: function() {
-			var templatesPaths = [config.src + '/app/**/*.html'];
 			return gulp
-				.src(templatesPaths)
+				.src(appTemplatesPaths)
 				.pipe(templateCache({
 					module: 'app',
-					root: '../src/app',
+					root: '../dist/app',
 					filename: 'app.templates.js'
 				}))
 				.pipe(gulp.dest(config.build + '/js'));
@@ -55,6 +67,7 @@ module.exports = function () {
 				.pipe(replace(replacements))
 				.pipe(replace(replaceApp))
 				.pipe(gulpIf('*.js', uglify()))
+				.pipe(replace('../src/', '../dist/'))
 				.pipe(gulpIf('*.css', minifyCss()))
 				.pipe(gulp.dest(config.build));	
 		}
